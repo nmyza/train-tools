@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.collector</groupId>
+  <artifactId>Logger</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>Logger Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+    <properties>
+        <!-- Adapt this to a version found on
+             http://central.maven.org/maven2/org/eclipse/jetty/jetty-maven-plugin/
+          -->
+        <jettyVersion>8.2.0.v20160908</jettyVersion>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>${jettyVersion}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>Logger</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                    <execution><goals><goal>java</goal></goals></execution>
+                </executions>
+                <configuration>
+                    <mainClass>org.collector.DataCollector</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
